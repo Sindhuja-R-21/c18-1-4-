@@ -89,7 +89,9 @@ function draw() {
     gameOver.visible = false;
     restart.visible = false;
     
+    //Game Adaptivity 
     ground.velocityX = -(4 + 3* score/100)
+     
     //scoring
     score = score + Math.round(frameCount/60);
     
@@ -104,6 +106,8 @@ function draw() {
     //jump when the space key is pressed
     if(keyDown("space")&& trex.y >= 100) {
         trex.velocityY = -12;
+       
+       //add jump sound
         
     }
     
@@ -119,7 +123,8 @@ function draw() {
     if(obstaclesGroup.isTouching(trex)){
         
         gameState = END;
-        dieSound.play()
+        
+       //add die Sound
       
     }
   }
@@ -152,6 +157,8 @@ function draw() {
 function spawnObstacles(){
  if (frameCount % 60 === 0){
    var obstacle = createSprite(400,165,10,40);
+    
+       //Game Adaptivity 
    obstacle.velocityX = -6;
    
     //generate random obstacles
@@ -188,6 +195,8 @@ function spawnClouds() {
     cloud.y = Math.round(random(10,60));
     cloud.addImage(cloudImage);
     cloud.scale = 0.5;
+     
+        //Game Adaptivity 
     cloud.velocityX = -3;
     
      //assign lifetime to the variable
